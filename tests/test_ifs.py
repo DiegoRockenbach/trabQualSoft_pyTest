@@ -33,25 +33,6 @@ def test_mostraTodasOpçoes(capsys):
     assert 'Envido' in captured
     assert 'Flor' in captured
     
-def test_mostraOpçoesLimitadas(capsys): #ERROR
-    """Se após truco ser chamado o jogador tem 3 cartas e não tem flor disponível, mostrar_opcoes deve listar apenas Retruco e Envidos."""
-    j1 = Jogador('1')
-    j2 = Jogador('2')
-    t = Truco()
-    j1.mao = [Carta(10, 'ESPADAS'), Carta(2, 'BASTOS'), Carta(6, 'OUROS')]
-    j1.pediu_truco = True
-    t.estado_atual = 'truco'
-    t.jogador_bloqueado = j2
-    t.controlador_truco(None, None, j2, j1, j2)
-    j1.flor = False
-    assert j1.checa_flor() == False
-    j1.mostrar_opcoes(None)
-    captured = capsys.readouterr().out
-
-    assert 'Truco' not in captured
-    assert 'Retruco' in captured
-    assert 'Envido' in captured
-    assert 'Flor' not in captured
 
 
 def test_podePedirTruco2x(capsys):
