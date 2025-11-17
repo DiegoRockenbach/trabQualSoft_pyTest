@@ -27,7 +27,7 @@ def test_aumentoValorDeRodadaTruco(monkeypatch): #ERROR
     t.estado_atual = ""
 
     # Em uma chamada de truco convencional, truco.valor_aposta não é atualizado. Desse modo, a rodada segue valendo 1 ponto, não importando chamar truco ou não.
-    t.controlador_truco(None, None, 2, j2, j2)
+    t.controlador_truco(None, None, 2, j1, j2)
     assert t.valor_aposta == 2
 
 def test_aumentoValorDeRodadaRetruco(monkeypatch):
